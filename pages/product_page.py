@@ -3,7 +3,7 @@ from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoAlertPresentException
 import time
-import math
+import math 
 
 
 class ProductPage(BasePage):
@@ -27,6 +27,11 @@ class ProductPage(BasePage):
     def should_product_in_basket_be_test_product(self):
         product_name_in_basket = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_BASKET).text
         assert self.product_name == product_name_in_basket, 'Product in basket not the test product'
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.BASKET_SUCCESS_MESSAGE), \
+       "Success message is presented, but should not be" 
+    def success_message_is_dissapeared(self):
+        assert self.is_disappeared(*ProductPageLocators.BASKET_SUCCESS_MESSAGE)    
                 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
@@ -42,10 +47,6 @@ class ProductPage(BasePage):
         except NoAlertPresentException:
             print("No second alert presented")
         
-    # def should_be_added_product_in_basket(self):
-    #     basket_message = self.browser.find_element(*ProductPageLocators.BASKET_MESSAGE)
-    #     assert self.is_element_present(*ProductPageLocators.BASKET_MESSAGE), 'There is no message on basket page'   
-    #     assert ProductPageLocators.PRODUCT_NAME in basket_message, 'There is another product in basket'
     
 
                 
