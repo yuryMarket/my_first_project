@@ -2,8 +2,14 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators:
+    BASKET_BUTTON = (By.CSS_SELECTOR, "span a.btn.btn-default")
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")    
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    
+
+class BasketPageLocators:
+    PRODUCT = (By.CSS_SELECTOR,'.product_main h1')
+    MESSAGE_NO_PRODUCT = (By.CSS_SELECTOR,'#content_inner > p')       
     
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR,'#login_form')
