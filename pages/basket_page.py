@@ -1,14 +1,8 @@
 from .locators import BasketPageLocators
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoAlertPresentException
-import time
-import math
 
 
-
-class BasketPage(BasePage):
-    
+class BasketPage(BasePage):    
     def should_be_no_product_in_basket(self):
         self.is_not_element_present(*BasketPageLocators.PRODUCT)
             
